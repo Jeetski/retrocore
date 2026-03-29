@@ -4,6 +4,16 @@ Retrocore is a Windows Terminal CRT shader manager with a CLI, presets, guided i
 
 It keeps the shader project source in one folder, generates a managed shader file, and updates Windows Terminal settings so the effect can be turned on, turned off, or scoped to specific profiles.
 
+## Gallery
+
+![Retrocore cat showcase](docs/images/cat.png)
+
+![Retrocore Manager](docs/images/manager.png)
+![Retrocore fire showcase](docs/images/fire.png)
+![Retrocore Lara Croft showcase](docs/images/lara_croft.png)
+![Retrocore matrix showcase](docs/images/matrix.png)
+![Retrocore windows showcase](docs/images/windows.png)
+
 ## Status
 
 Retrocore is currently being packaged as a `v0.1-alpha`.
