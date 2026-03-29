@@ -18,18 +18,26 @@ except ImportError:
     ImageTk = None
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-DEFAULT_CONFIG_PATH = PROJECT_ROOT / "retrocore.json"
-PRESETS_PATH = PROJECT_ROOT / "presets.json"
-TEMPLATE_PATH = PROJECT_ROOT / "shaders" / "retrocore.template.hlsl"
-GENERATED_PROJECT_SHADER_PATH = PROJECT_ROOT / "shaders" / "retrocore.generated.hlsl"
-SNAPSHOTS_DIR = PROJECT_ROOT / "snapshots"
-BRANDING_DIR = PROJECT_ROOT / "branding"
+APP_ROOT = (
+    Path(getattr(sys, "_MEIPASS")).resolve()
+    if getattr(sys, "frozen", False) and getattr(sys, "_MEIPASS", None)
+    else Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else Path(__file__).resolve().parent
+)
+PROJECT_ROOT = APP_ROOT
+USER_DATA_DIR = Path(os.path.expandvars(r"%LOCALAPPDATA%\Retrocore")).resolve() if getattr(sys, "frozen", False) else PROJECT_ROOT
+DEFAULT_CONFIG_SOURCE_PATH = APP_ROOT / "retrocore.json"
+PRESETS_SOURCE_PATH = APP_ROOT / "presets.json"
+DEFAULT_CONFIG_PATH = USER_DATA_DIR / "retrocore.json"
+PRESETS_PATH = USER_DATA_DIR / "presets.json"
+TEMPLATE_PATH = APP_ROOT / "shaders" / "retrocore.template.hlsl"
+GENERATED_PROJECT_SHADER_PATH = USER_DATA_DIR / "retrocore.generated.hlsl" if getattr(sys, "frozen", False) else PROJECT_ROOT / "shaders" / "retrocore.generated.hlsl"
+SNAPSHOTS_DIR = USER_DATA_DIR / "snapshots"
+BRANDING_DIR = APP_ROOT / "branding"
 LOGO_PNG_PATH = BRANDING_DIR / "retrocore.png"
 LOGO_ICO_PATH = BRANDING_DIR / "retrocore.ico"
 HIVEMIND_STUDIO_PNG_PATH = BRANDING_DIR / "hivemind_studio.png"
 HIVEMIND_STUDIO_URL = "https://hivemindstudio.art"
-HELP_DOC_PATH = PROJECT_ROOT / "HELP.md"
+HELP_DOC_PATH = APP_ROOT / "HELP.md"
 SETTING_KEY = "experimental.pixelShaderPath"
 BUILTIN_PRESET_NAMES = {
     "subtle",
@@ -168,6 +176,20 @@ def parse_json_document(path: Path, *, allow_jsonc: bool = False) -> dict:
 
 def load_json(path: Path) -> dict:
     return parse_json_document(path)
+
+
+def ensure_runtime_files() -> None:
+    if not getattr(sys, "frozen", False):
+        return
+
+    USER_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not DEFAULT_CONFIG_PATH.exists() and DEFAULT_CONFIG_SOURCE_PATH.exists():
+        shutil.copy2(DEFAULT_CONFIG_SOURCE_PATH, DEFAULT_CONFIG_PATH)
+
+    if not PRESETS_PATH.exists() and PRESETS_SOURCE_PATH.exists():
+        shutil.copy2(PRESETS_SOURCE_PATH, PRESETS_PATH)
 
 
 def save_json(path: Path, data: dict) -> None:
@@ -1622,6 +1644,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
+    ensure_runtime_files()
     parser = build_parser()
     if not argv or argv in [["-h"], ["--help"]]:
         print_top_level_help()
