@@ -1,0 +1,8 @@
+__pycache__/
+tests/__pycache__/
+*.pyc
+*.pyo
+
+snapshots/*.json
+
+shaders/retrocore.generated.hlsl

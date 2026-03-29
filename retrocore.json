@@ -1,0 +1,31 @@
+{
+  "project_name": "retrocore",
+  "preset": "subtle",
+  "enabled": true,
+  "terminal": {
+    "settings_path": "%LOCALAPPDATA%\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json",
+    "shader_output_path": "%LOCALAPPDATA%\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\retrocore.generated.hlsl"
+  },
+  "target": {
+    "mode": "defaults",
+    "profile_ids": [],
+    "clear_non_target_profiles": true
+  },
+  "effects": {
+    "curvature": 0.055,
+    "aberration_base": 0.00055,
+    "aberration_edge": 0.00075,
+    "glow_horizontal": 0.16,
+    "glow_vertical": 0.1,
+    "noise_amount": 0.014,
+    "flicker_primary": 0.0035,
+    "flicker_secondary": 0.0015,
+    "vertical_jitter": 0.00045,
+    "persistence_amount": 0.022,
+    "dot_glow_amount": 0.028,
+    "red_gain": 1.0,
+    "green_gain": 1.0,
+    "blue_gain": 1.0,
+    "saturation": 1.0
+  }
+}

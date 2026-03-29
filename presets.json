@@ -1,0 +1,122 @@
+{
+  "subtle": {
+    "description": "Neutral CRT styling close to the original restrained shader.",
+    "effects": {
+      "curvature": 0.055,
+      "aberration_base": 0.00055,
+      "aberration_edge": 0.00075,
+      "glow_horizontal": 0.16,
+      "glow_vertical": 0.1,
+      "noise_amount": 0.014,
+      "flicker_primary": 0.0035,
+      "flicker_secondary": 0.0015,
+      "vertical_jitter": 0.00045,
+      "persistence_amount": 0.022,
+      "dot_glow_amount": 0.028,
+      "red_gain": 1.0,
+      "green_gain": 1.0,
+      "blue_gain": 1.0,
+      "saturation": 1.0
+    }
+  },
+  "warm": {
+    "description": "A warmer tube look with softer blue response and a slightly richer afterglow.",
+    "effects": {
+      "curvature": 0.058,
+      "aberration_base": 0.00058,
+      "aberration_edge": 0.00082,
+      "glow_horizontal": 0.18,
+      "glow_vertical": 0.11,
+      "noise_amount": 0.012,
+      "flicker_primary": 0.0032,
+      "flicker_secondary": 0.0014,
+      "vertical_jitter": 0.00042,
+      "persistence_amount": 0.026,
+      "dot_glow_amount": 0.03,
+      "red_gain": 1.06,
+      "green_gain": 1.0,
+      "blue_gain": 0.92,
+      "saturation": 0.96
+    }
+  },
+  "arcade": {
+    "description": "More curvature, stronger bloom, and brighter color separation for a louder cabinet-style look.",
+    "effects": {
+      "curvature": 0.074,
+      "aberration_base": 0.0008,
+      "aberration_edge": 0.0011,
+      "glow_horizontal": 0.24,
+      "glow_vertical": 0.16,
+      "noise_amount": 0.018,
+      "flicker_primary": 0.0052,
+      "flicker_secondary": 0.0022,
+      "vertical_jitter": 0.00065,
+      "persistence_amount": 0.031,
+      "dot_glow_amount": 0.04,
+      "red_gain": 1.05,
+      "green_gain": 1.02,
+      "blue_gain": 1.09,
+      "saturation": 1.15
+    }
+  },
+  "amber": {
+    "description": "Amber monochrome-inspired terminal with long-looking glow and low blue response.",
+    "effects": {
+      "curvature": 0.052,
+      "aberration_base": 0.00032,
+      "aberration_edge": 0.00045,
+      "glow_horizontal": 0.17,
+      "glow_vertical": 0.12,
+      "noise_amount": 0.01,
+      "flicker_primary": 0.0028,
+      "flicker_secondary": 0.0012,
+      "vertical_jitter": 0.00035,
+      "persistence_amount": 0.038,
+      "dot_glow_amount": 0.034,
+      "red_gain": 1.24,
+      "green_gain": 0.82,
+      "blue_gain": 0.18,
+      "saturation": 0.0
+    }
+  },
+  "phosphor-green": {
+    "description": "Green-screen style monochrome phosphor with restrained aberration and heavier persistence.",
+    "effects": {
+      "curvature": 0.05,
+      "aberration_base": 0.00025,
+      "aberration_edge": 0.00035,
+      "glow_horizontal": 0.15,
+      "glow_vertical": 0.12,
+      "noise_amount": 0.01,
+      "flicker_primary": 0.003,
+      "flicker_secondary": 0.0014,
+      "vertical_jitter": 0.00038,
+      "persistence_amount": 0.041,
+      "dot_glow_amount": 0.035,
+      "red_gain": 0.32,
+      "green_gain": 1.16,
+      "blue_gain": 0.24,
+      "saturation": 0.0
+    }
+  },
+  "ice": {
+    "description": "Cooler high-clarity preset with tighter bloom and a slight blue emphasis.",
+    "effects": {
+      "curvature": 0.048,
+      "aberration_base": 0.00045,
+      "aberration_edge": 0.00062,
+      "glow_horizontal": 0.13,
+      "glow_vertical": 0.085,
+      "noise_amount": 0.011,
+      "flicker_primary": 0.0028,
+      "flicker_secondary": 0.0012,
+      "vertical_jitter": 0.00032,
+      "persistence_amount": 0.018,
+      "dot_glow_amount": 0.024,
+      "red_gain": 0.93,
+      "green_gain": 1.0,
+      "blue_gain": 1.11,
+      "saturation": 1.03
+    }
+  }
+}
